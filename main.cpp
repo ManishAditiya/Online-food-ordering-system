@@ -15,7 +15,7 @@
   #include <experimental/filesystem>
   #define HAS_EXPERIMENTAL_FILESYSTEM 1
 #else
-  // Filesystem is not supported by this compiler. Some features may not work.
+  
 #endif
 
 #if defined(HAS_STD_FILESYSTEM)
@@ -77,7 +77,7 @@ public:
         ifstream fin(MENU_FILE);
         if (!fin) return false;
         string line;
-        // header optional; detect by checking if first token is non-numeric
+       
         bool first = true;
         while (getline(fin, line)) {
             if (line.empty()) continue;
@@ -90,7 +90,7 @@ public:
             getline(ss, availS, ',');
 
             if (first) {
-                // try to detect header
+                
                 bool isHeader = !all_of(idS.begin(), idS.end(), ::isdigit);
                 if (isHeader) { first = false; continue; }
             }
